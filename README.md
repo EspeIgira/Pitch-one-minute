@@ -1,7 +1,6 @@
 # Pitch-one-minute
-# -News-Highlight
 
-Creating an Application / News-Highlight with News articles.
+Creating an Application / Pitch one minute with Users.
  
 ## Description
   
