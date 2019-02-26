@@ -4,7 +4,7 @@ Creating an Application / Pitch one minute with Users.
  
 ## Description
   
-{News Highlight is an application which displays articles of news and list them. Able to help users to view all lists from news articles from various sources}, {Created 26th February 2019}
+{Pitch one minute is an application that allows to create pitches according to categories, vote and comments them by users.}, {Created 26th February 2019}
 
 
 ## Setup/Installation Requirements
@@ -23,7 +23,7 @@ Creating an Application / Pitch one minute with Users.
   
  - CSS Stylesheet
  
- - PostgresSQl DB
+ - PostgresSQL DB
 
 
 ## Contact Information
