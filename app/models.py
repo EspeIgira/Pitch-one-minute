@@ -45,7 +45,7 @@ class Pitches(db.Model):
     id = db.Column(db.Integer,primary_key = True)
     description= db.Column(db.String)
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
-    vote = db.relationship("Votes", backref="pitches", lazy = "dynamic")
+    # vote = db.relationship("Votes", backref="pitches", lazy = "dynamic")
 
 
     def save_pitch(self):
@@ -73,7 +73,7 @@ class Pitches(db.Model):
 
     # def __repr__(self):
     #     return f'User {self.name}'
-    
+
 
 # comments class..........
 
