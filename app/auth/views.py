@@ -6,10 +6,13 @@ from .forms import RegistrationForm
 from .. import db
 
 from flask_login import login_user,logout_user,login_required
-from ..models import User
+
 from .forms import LoginForm,RegistrationForm
 
 from ..email import mail_message
+
+
+
 
 
 

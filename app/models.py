@@ -5,6 +5,9 @@ from . import login_manager
 
 
 
+
+
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
@@ -33,6 +36,8 @@ class User(UserMixin,db.Model):
 
     def verify_password(self,password):
         return check_password_hash(self.pass_secure,password)
+        
+# pitch class ................
 
 class Pitches(db.Model):
     __tablename__ = 'pitches'
@@ -43,8 +48,34 @@ class Pitches(db.Model):
     vote = db.relationship("Votes", backref="pitches", lazy = "dynamic")
 
 
-    def __repr__(self):
-        return f'User {self.name}'
+    def save_pitch(self):
+        db.session.add(self)
+        db.session.commit()
+
+
+    @classmethod
+    def clear_pitches(cls):
+        Pitch.all_pitches.clear()
+
+    @classmethod
+    def get_pitches(cls,id):
+
+        # response = []
+
+        # for pitches in cls.all_pitches:
+        #     if pitches.user_id == id:
+        #         response.append(pitches)
+
+        # return response
+        pitches = Pitch.query.filter_by(category_id=id).all()
+        return pitches
+
+
+    # def __repr__(self):
+    #     return f'User {self.name}'
+    
+
+# comments class..........
 
 class Comments(db.Model):
     __tablename__ = 'comments'
@@ -54,6 +85,32 @@ class Comments(db.Model):
     comments = db.Column(db.String(255))
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     pitches_id = db.Column(db.Integer, db.ForeignKey("pitches.id"))
+
+
+    def save_comment(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_comments(self,id):
+
+        # response = []
+
+        # for comments in cls.all_comments:
+        #     if comments.user_id == id:
+        #         response.append(comments)
+
+        # return response
+        comment = Comments.query.order_by(Comments.time_posted.desc()).filter_by(pitches_id=id).all()
+
+        return comment
+
+
+
+
+    # def __repr__(self):
+    #     return f'User {self.name}'
+
 
 
 

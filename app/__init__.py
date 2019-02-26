@@ -5,6 +5,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_uploads import UploadSet,configure_uploads,IMAGES
 
+
+
 bootstrap = Bootstrap()
 db = SQLAlchemy()
 
@@ -21,6 +23,8 @@ def create_app(config_name):
     # Creating the app configurations
     app.config.from_object(config_options[config_name])
 
+    
+
     # Initializing flask extensions
     bootstrap.init_app(app)
     db.init_app(app)
@@ -34,14 +38,7 @@ def create_app(config_name):
     app.register_blueprint(auth_blueprint,url_prefix = '/authenticate')
 
 
-    # setting config
-    from .request import configure_request
-    configure_request(app)
-
-
 
     return app
 
-from .main import views
-from .main import error
     
