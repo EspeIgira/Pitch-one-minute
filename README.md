@@ -9,7 +9,7 @@ Creating an Application / Pitch one minute with Users.
 
 ## Setup/Installation Requirements
   
-- Install python 3.6
+- Python 3.6
 
 - Terminal ./start.sh run app
 
