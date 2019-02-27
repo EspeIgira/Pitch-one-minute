@@ -28,31 +28,44 @@
     {% block content %}
 
 <div class="container">
-
-        <p>Pickup Lines|</p>
+    <div class="pitch">
+        <p>|Pickup Lines|</p>
         <hr>
         <p>I'm not drunk, I'm just intoxicated by you.</p>
         <p>I see you, when you see me.</p>
         <br>
-        <p>Interview Pitch|</p>
+        <a href= "{{url_for('main.newpitch')}}">|Add New Pitch|</a>
+        <a href= "{{url_for('main.comment')}}">|Comment|</a>
+        <a href= "{{url_for('main.vote')}}">Vote|</a>
+        <p>|Interview Pitch|</p>
         <hr>
         <p>Who are you what do you do?</p>
         <p>What make yoou think you are good at this position?</p>
         <p>What do you want in your future career?</p>
         <br>
-        <p>Product Pitch|</p>
+        <a href= "{{url_for('main.newpitch')}}">Add New Pitch</a>
+        <a href= "{{url_for('main.comment')}}">|Comment|</a>
+        <a href= "{{url_for('main.vote')}}">Vote|</a>
+        <p>|Product Pitch|</p>
         <hr>
         <p>the goal is to sell.</p>
         <p>Too salesy?It'll put off your audience</p>
         <p>Are any of those product types?</p>
         <br>
-        <p>Promotion pitch|</p>
+        <a href= "{{url_for('main.newpitch')}}">Add New Pitch</a>
+        <a href= "{{url_for('main.comment')}}">|Comment|</a>
+        <a href= "{{url_for('main.vote')}}">Vote|</a>
+        <p>|Promotion pitch|</p>
         <hr>
         <p>He replaced me in scranton when I got this promotion.</p>
+        <br>
+        <a href= "{{url_for('main.newpitch')}}">Add New Pitch</a>
+        <a href= "{{url_for('main.comment')}}">|Comment|</a>
+        <a href= "{{url_for('main.vote')}}">Vote|</a>
 
 
         <br><br>
-
+    </div>
      
     
     <form>

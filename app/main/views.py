@@ -51,6 +51,21 @@ def promotion():
     return render_template("index.html")
 
 
+@main.route('/newpitch/')
+def newpitch():
+
+    return render_template("index.html")
+
+@main.route('/comment/')
+def comment():
+
+    return render_template("index.html")
+
+@main.route('/vote/')
+def vote():
+
+    return render_template("index.html")
+
 
 
 
