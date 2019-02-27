@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+    <div class="container">
+
+        <br>
+        <p>|PICKUP LINES|</p>
+        <hr>
+        <p>I'm not drunk, I'm just intoxicated by you.</p>
+        <p>I see you, when you see me.</p>
+        <br>
+    
+        <a href= "{{url_for('main.comment')}}">|  Comment|</a>
+
+        <div class="col-md-4 form" >
+            <br>
+          {{ wtf.quick_form(user_form) }}
+     
+            
+        </div>
+
+        <form>
+            <input type="text" name="user_query" placeholder="Add comment" class="form-control"><br>
+            <input type="submit"  value="Submit" class="btn btn-default">
+        </form>
+        
+    </div>
+
+
+{% endblock %}
