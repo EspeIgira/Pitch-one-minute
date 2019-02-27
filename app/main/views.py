@@ -16,8 +16,8 @@ def index():
     form = UserForm()
     title = 'Home - Welcome to The best user Website Online'
 
-    return render_template('new_user.html','comment.html',title = title, user_form=form)
-    
+    return render_template('new_user.html',title = title, user_form=form)
+
     return render_template('comment.html',title = title, user_form=form)
 
 @main.route('/user/<uname>')
