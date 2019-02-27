@@ -17,8 +17,7 @@ def index():
     title = 'Home - Welcome to The best user Website Online'
 
     return render_template('new_user.html',title = title, user_form=form)
-
-    return render_template('comment.html',title = title, user_form=form)
+    
 
 @main.route('/user/<uname>')
 def profile(uname):
@@ -66,10 +65,7 @@ def vote():
 
     return render_template("index.html")
 
-@main.route('/comment/')
-def comment():
 
-    return render_template("index.html")
 
 
 
