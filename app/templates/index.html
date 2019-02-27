@@ -28,10 +28,20 @@
     {% block content %}
 
 <div class="container">
+    <div>
+
+        <a href= "{{url_for('main.pickuplines')}}">Pickup Lines</a>
+        <a href= "{{url_for('main.interview')}}">Interview Pitch</a>
+        <a href= "{{url_for('main.product')}}">Product Pitch</a>
+        <a href= "{{url_for('main.promotion')}}">Promotion pitch</a>
+
+    </div>
     <form>
-        <input type="text" name="movie_query" placeholder="Search for a Movie" class="form-control">
+        <input type="text" name="user_query" placeholder="Search for a user" class="form-control">
         <input type="submit"  value="Submit" class="btn btn-default">
     </form>
+
+
 
 </div>
 

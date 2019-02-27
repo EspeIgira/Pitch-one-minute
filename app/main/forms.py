@@ -4,8 +4,8 @@ from wtforms.validators import Required
 
 class UserForm(FlaskForm):
 
-    title = StringField('User title',validators=[Required()])
-    user = TextAreaField('User user', validators=[Required()])
+    title = StringField('Pitch Category',validators=[Required()])
+    user = TextAreaField('Pitch', validators=[Required()])
     submit = SubmitField('Submit')
 
 class UpdateProfile(FlaskForm):
