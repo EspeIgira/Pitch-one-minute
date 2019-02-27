@@ -29,6 +29,28 @@ def profile(uname):
 
     return render_template("profile/profile.html", user = user)
 
+@main.route('/pickup/')
+def pickuplines():
+
+    return render_template("index.html")
+
+
+@main.route('/interview/')
+def interview():
+
+    return render_template("index.html")
+
+@main.route('/product/')
+def product():
+
+    return render_template("index.html")
+
+@main.route('/promotion/')
+def promotion():
+
+    return render_template("index.html")
+
+
 
 
 

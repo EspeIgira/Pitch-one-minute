@@ -3,11 +3,26 @@
 {% block content %}
     <div class="container">
 
-        <div class="col-md-4">
+        <div class="selectpitch">
+            <hr>
+                <a href= "{{url_for('main.pickuplines')}}">Pickup Lines|</a>
+                <a href= "{{url_for('main.interview')}}"> Interview Pitch|</a>
+                <a href= "{{url_for('main.product')}}"> Product Pitch|</a>
+                <a href= "{{url_for('main.promotion')}}"> Promotion pitch</a>
+            <hr>
 
-            {{ wtf.quick_form(user_form) }}
         </div>
 
+       
+
+
+        <div class="col-md-4 form" >
+            <br>
+          {{ wtf.quick_form(user_form) }}
+     
+            
+        </div>
+        
     </div>
 
 {% endblock %}

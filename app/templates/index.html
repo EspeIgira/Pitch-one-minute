@@ -28,14 +28,7 @@
     {% block content %}
 
 <div class="container">
-    <div>
-
-        <a href= "{{url_for('main.pickuplines')}}">Pickup Lines</a>
-        <a href= "{{url_for('main.interview')}}">Interview Pitch</a>
-        <a href= "{{url_for('main.product')}}">Product Pitch</a>
-        <a href= "{{url_for('main.promotion')}}">Promotion pitch</a>
-
-    </div>
+    
     <form>
         <input type="text" name="user_query" placeholder="Search for a user" class="form-control">
         <input type="submit"  value="Submit" class="btn btn-default">
@@ -44,24 +37,31 @@
 
 
 </div>
-
-    <!-- Popular movie -->
-    <h3> Popular Movies</h3>
+<!--  
+    Popular movie -->
+    <!-- <h3> Popular user</h3>
     <ul>
         {{ macro.displayMovieList(popular)}}
-    </ul>
+    </ul> -->
     <!-- Upcoming movie  -->
-    <h3> Upcoming Movies </h3>
+    <!-- <h3> Upcoming user </h3>
     <ul>
         {{ macro.displayMovieList(upcoming)}}
-    </ul>
-    <!-- Now showing movie -->
+    </ul> -->
+    <!-- Now showing movie 
     <h3>Now Showing</h3>
     <ul>
         {{ macro.displayMovieList(now_showing)}}
     </ul>
-
-
+-->
+    <h3>Pitches</h3>
+    <ul>
+        {{macro.displayPitches(pitches)}}
+    </ul>
+     
+    <p>Create your new Pitch as desired!</p>
+    <a href= "{{url_for('main.newpitch')}}">Add New Pitch</a>
+    
 {% endblock%}
        
 </body>
