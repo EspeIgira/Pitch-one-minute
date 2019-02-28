@@ -15,7 +15,7 @@
 
         {% block styles%}
         {{ super() }}
-        <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+        <link rel="stylesheet" href="{{url_for('static',filename='CSS/index.css')}}">
         {% endblock %}
         
     </head>
@@ -26,12 +26,11 @@
     <!-- Content block -->
    
     {% block content %}
-
-<div class="container">
-    <div class="pitch">
-        <hr>
+<div class="pitch">
+   <div class="container">
         <p class="cat_">PITCHES CATEGORIES</p>
-        <p>_______________________________</p>
+        <img src="https://cdn.lynda.com/course/728380/728380-636675048518746190-16x9.jpg" width="300">
+        <br><br>   
         <p>You can comment and vote on pitches.</p>
         <hr>
         <br>
@@ -76,13 +75,6 @@
         <br><br>
     </div>
      
-<!--     
-    <form>
-        <input type="text" name="user_query" placeholder="Search for a user" class="form-control"><br>
-        <input type="submit"  value="Add pitch" class="btn btn-default">
-    </form> -->
-
-
 
 </div>
 <!--  

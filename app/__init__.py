@@ -27,6 +27,9 @@ def create_app(config_name):
 
     mail.init_app(app)
 
+    # configure UploadSet
+    configure_uploads(app,photos)
+
     # Initializing flask extensions
     bootstrap.init_app(app)
     db.init_app(app)

@@ -1,10 +1,20 @@
 {% extends 'base.html'%}
 {% import "bootstrap/wtf.html" as wtf %}
-{% block content %}
-    <div class="container">
 
+<!-- Styles block -->
+
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='CSS/index.css')}}">
+{% endblock %}
+
+{% block content %}
+<div class="border">
+        
+    <div class="container">
+        <img src="https://cdn.lynda.com/course/728380/728380-636675048518746190-16x9.jpg" width="300">
         <div class="selectpitch">
-            <hr>
+            
                 <a href= "{{url_for('main.pickuplines')}}">Pickup Lines|</a>
                 <a href= "{{url_for('main.interview')}}"> Interview Pitch|</a>
                 <a href= "{{url_for('main.product')}}"> Product Pitch|</a>
@@ -18,11 +28,13 @@
        <hr>
 
        <br>
-       <a href= "{{url_for('main.newpitch')}}">Add New Pitch</a>
+       <div class="add">
+        <a href= "{{url_for('main.newpitch')}}">Add New Pitch</a>
+       </div>
        <br>
 
        <hr>
-       
+       <p>View your pitches.</p>
        {% for pitch in all_pitches %}
     
         <h2> {{ pitch.description}} </h2>
@@ -30,5 +42,5 @@
     
       {% endfor %}
     </div>
-
+</div>
 {% endblock %}

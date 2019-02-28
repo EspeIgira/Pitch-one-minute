@@ -6,8 +6,6 @@ from . import login_manager
 
 
 
-
-
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
@@ -69,9 +67,6 @@ class Pitches(db.Model):
         return pitches
 
 
-    # def __repr__(self):
-    #     return f'User {self.name}'
-
 
 # comments class..........
 
@@ -92,13 +87,7 @@ class Comments(db.Model):
     @classmethod
     def get_comments(self,id):
 
-        # response = []
-
-        # for comments in cls.all_comments:
-        #     if comments.user_id == id:
-        #         response.append(comments)
-
-        # return response
+    
         comment = Comments.query.order_by(Comments.time_posted.desc()).filter_by(pitches_id=id).all()
 
         return comment
@@ -106,8 +95,7 @@ class Comments(db.Model):
 
 
 
-    # def __repr__(self):
-    #     return f'User {self.name}'
+    
 
 
 

@@ -17,3 +17,5 @@ class AddPitch(FlaskForm):
 
     description = TextAreaField('Pitch', validators=[Required()])
     submit = SubmitField('Add Pitch')
+
+    
