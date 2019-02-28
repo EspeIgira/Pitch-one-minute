@@ -1,9 +1,9 @@
 from flask import render_template,request,redirect,url_for,abort
 from . import main
-from flask_login import login_required
-from ..models import User
+from flask_login import login_required, current_user
+from ..models import User,Pitches
 
-from .forms import UserForm,UpdateProfile
+from .forms import UserForm,UpdateProfile,AddPitch
 from .. import db,photos
 
 
@@ -13,11 +13,16 @@ def index():
     '''
     View root page function that returns the index page and its data
     '''
-    form = UserForm()
-    title = 'Home - Welcome to The best user Website Online'
+    # form = UserForm()
 
-    return render_template('new_user.html',title = title, user_form=form)
     
+
+    title = 'Home - Welcome to The best user Website Online'
+    all_pitches = Pitches.get_pitches()
+
+    return render_template('new_user.html',title = title, all_pitches=all_pitches)
+
+#Link user file and index file.............   
 
 @main.route('/user/<uname>')
 def profile(uname):
@@ -49,16 +54,31 @@ def promotion():
 
     return render_template("index.html")
 
-
-@main.route('/newpitch/')
+#Able to comment,vote.................
+@main.route('/newpitch/',methods = ['GET','POST'])
+@login_required
 def newpitch():
 
-    return render_template("index.html")
+    form = AddPitch()
+  
+    if form.validate_on_submit():
+       
+        description= form.description.data
+
+        # Updated review instance
+        new_pitch = Pitches(description = description ,user_id=current_user.id)
+
+        # save review method
+        new_pitch.save_pitch()
+        return redirect(url_for('.index'))
+
+   
+    return render_template('addpitch.html',new_pitch=form)
 
 @main.route('/comment/')
 def comment():
 
-    return render_template("index.html")
+    return render_template("comment.html")
 
 @main.route('/vote/')
 def vote():

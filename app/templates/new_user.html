@@ -15,16 +15,20 @@
 
        
        <p>You can write your pitches here according to any category you want.</p>
+       <hr>
 
+       <br>
+       <a href= "{{url_for('main.newpitch')}}">Add New Pitch</a>
+       <br>
 
+       <hr>
        
-        <div class="col-md-4 form" >
-            <br>
-          {{ wtf.quick_form(user_form) }}
-     
-          <hr>  
-        </div>
-       
+       {% for pitch in all_pitches %}
+    
+        <h2> {{ pitch.description}} </h2>
+        <p> {{ pitch.user }}</p>
+    
+      {% endfor %}
     </div>
 
 {% endblock %}

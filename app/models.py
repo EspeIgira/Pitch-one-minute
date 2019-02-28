@@ -21,6 +21,7 @@ class User(UserMixin,db.Model):
     email = db.Column(db.String(255),unique = True,index = True)
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
+    pitches = db.relationship("Pitches", backref="user", lazy = "dynamic")
     password_hash = db.Column(db.String(255))
     pass_secure = db.Column(db.String(255))
 
@@ -36,6 +37,10 @@ class User(UserMixin,db.Model):
 
     def verify_password(self,password):
         return check_password_hash(self.pass_secure,password)
+
+    
+    def __repr__(self):
+        return f'User {self.username}'
         
 # pitch class ................
 
@@ -45,7 +50,7 @@ class Pitches(db.Model):
     id = db.Column(db.Integer,primary_key = True)
     description= db.Column(db.String)
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
-    # vote = db.relationship("Votes", backref="pitches", lazy = "dynamic")
+    
 
 
     def save_pitch(self):
@@ -55,19 +60,12 @@ class Pitches(db.Model):
 
     @classmethod
     def clear_pitches(cls):
-        Pitch.all_pitches.clear()
+        Pitches.all_pitches.clear()
 
     @classmethod
-    def get_pitches(cls,id):
+    def get_pitches(id):
 
-        # response = []
-
-        # for pitches in cls.all_pitches:
-        #     if pitches.user_id == id:
-        #         response.append(pitches)
-
-        # return response
-        pitches = Pitch.query.filter_by(category_id=id).all()
+        pitches = Pitches.query.all()
         return pitches
 
 
